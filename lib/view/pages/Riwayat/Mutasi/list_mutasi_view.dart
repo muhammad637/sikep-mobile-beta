@@ -38,13 +38,13 @@ class _ListMutasiViewState extends State<ListMutasiView> {
         10,
         (index) => {
           'jenis_mutasi': '${index % 2 == 0 ? "Internal" : "Eksternal"}',
-          'ruangan_sebelumnya': 'params${index + 2}',
-          'ruangan_baru': 'params${index + 3}',
-          'no_sk': 'params${index + 3}',
-          'tanggal_berlaku': 'params${index + 1}',
-          'tanggal_sk': 'params',
-          'instansi_sebelumnya': 'params',
-          'instansi_baru': 'params',
+          'ruangan_sebelumnya': 'Ruangan ${index+ 1}',
+          'ruangan_baru': 'Ruangan ${index + 2}',
+          'no_sk': 'LOREM/01/01/2024',
+          'tanggal_berlaku': '2024-01-10',
+          'tanggal_sk': '2024-10-01',
+          'instansi_sebelumnya': '${index % 2 == 0 ? "RSUD Banyuwangi" : "RSUD Banyuwangi"}',
+          'instansi_baru': "${index % 2 == 0 ? "RSUD Banyuwangi" : "Instansi 1"}",
         },
       );
     });
@@ -121,15 +121,16 @@ class _ListMutasiViewState extends State<ListMutasiView> {
                                   color: primaryColor),
                               child: ListTile(
                                 contentPadding: EdgeInsets.all(10),
-                                leading: CircleAvatar(child: Image.asset("assets/asset_sikep/akun.png"),),
+                                leading: CircleAvatar(child: Image.asset(
+                                      "assets/asset_sikep/account_circle.png"),
+                                  backgroundColor: Colors.transparent,
+                                ),
                                 trailing: InkWell(
                                   onTap: () {
                                     navigateToDetail(mutasi[index]);
                                   },
-                                  child: Icon(
-                                    Icons.info,
-                                    color: whiteColor,
-                                  ),
+                                  child: Image
+                                        .asset("assets/asset_sikep/info.png")
                                 ),
                                 title: Text(
                                   "Jenis mutasi : ${mutasi[index]['jenis_mutasi']!}",

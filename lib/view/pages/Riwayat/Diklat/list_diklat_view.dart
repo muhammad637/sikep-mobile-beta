@@ -25,31 +25,31 @@ class _ListDiklatViewState extends State<ListDiklatView> {
   void initState() {
     super.initState();
     headerComponent = HeaderComponent();
-    headerContainer = HeaderContainer(HeaderName: "Riwayat Cuti");
-    // You can call your API here
+    headerContainer = HeaderContainer(HeaderName: "Riwayat Diklat");
     fetchDiklatList();
   }
 
   void fetchDiklatList() {
-    // Simulating API call
     setState(() {
       DiklatList = List.generate(
         10,
         (index) => {
-          'tipe': '${index % 2 == 0 ? "Promosi" : "Demosi"}',
-          'jabatan_sebelumnya': 'params${index + 2}',
-          'jabatan_baru': 'params${index + 3}',
-          'ruangan_sebelumnya': 'params${index + 1}',
-          'ruangan_baru': 'params',
-          'tanggal_sk': '2024-03-${index + 1}',
-          'tanggal_berlaku': '2024-03-${index + 1}',
-          'no_sk': '12312312',
+          'ruangan': "Ruangan ${index + 1}",
+          'nama_diklat': 'Diklat ${index + 1}',
+          'tanggal_mulai': '2024-03-${index + 1}',
+          'tanggal_selesai': '2024-03-${index + 1}',
+          'jumlah_hari': '${index + 1}',
+          'jumlah_jam': '${index + 1}',
+          'penyelenggara': 'Penyelenggara ${index + 1}',
+          'tempat': 'Tempat ${index + 1}',
+          'tahun': '2024',
+          'no_sertifikat': 'No Sertifikat ${index + 1}',
+          'tanggal_sertifikat': '2024-03-${index + 1}',
+          'link_sertifikat': 'Link Sertifikat ${index + 1}',
         },
       );
     });
   }
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +63,7 @@ class _ListDiklatViewState extends State<ListDiklatView> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Stack(
-             children: [
+          children: [
             Container(
               width: deviceWidth(context),
               height: 205 - statusBarHeight(context),
@@ -90,88 +90,88 @@ class _ListDiklatViewState extends State<ListDiklatView> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Container(
-                      margin:
-                          EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+                      margin: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
                       width: deviceWidth(context),
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: whiteColor,
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                spreadRadius: 2, // Penyebaran bayangan
-                                blurRadius: 7,
-                                offset: Offset(1, 4))
-                          ]),
+                        borderRadius: BorderRadius.circular(10),
+                        color: whiteColor,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 2,
+                            blurRadius: 7,
+                            offset: Offset(1, 4)
+                          )
+                        ]
+                      ),
                       height: deviceHeight(context) * 1 / 2,
-                      // width: deviceWidth(context) - 15,
                       child: ListView.separated(
-                          separatorBuilder: (context, index) => SizedBox(
-                                height: 10,
+                        separatorBuilder: (context, index) => SizedBox(height: 10),
+                        itemCount: DiklatList.length,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: primaryColor,
+                            ),
+                            child: ListTile(
+                              contentPadding: EdgeInsets.all(10),
+                              leading: CircleAvatar(
+                                child: Image.asset(
+                                    "assets/asset_sikep/account_circle.png"),
+                                backgroundColor: Colors.transparent,
                               ),
-                          itemCount: DiklatList.length,
-                          itemBuilder: (context, index) {
-                            return Container(
-                              margin: EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 10),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: primaryColor),
-                              child: ListTile(
-                                contentPadding: EdgeInsets.all(10),
-                                leading: CircleAvatar(),
-                                trailing: InkWell(
-                                  onTap: () {
-                                    navigateToDetail(DiklatList[index]);
-                                  },
-                                  child: Icon(
-                                    Icons.info,
-                                    color: whiteColor,
-                                  ),
+                              trailing: InkWell(
+                                onTap: () {
+                                  navigateToDetail(DiklatList[index]);
+                                },
+                                child: Image.asset(
+                                      "assets/asset_sikep/info.png")
+                              ),
+                              title: Text(
+                                "Nama Diklat : ${DiklatList[index]['nama_diklat']!}",
+                                style: TextStyle(
+                                  color: whiteColor,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 11,
                                 ),
-                                title: Text(
-                                  "Jenis Cuti : ${DiklatList[index]['tipe']!}",
-                                  style: TextStyle(
+                              ),
+                              subtitle: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Tahun : ${DiklatList[index]['tahun']!}",
+                                    style: TextStyle(
                                       color: whiteColor,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 11),
-                                ),
-                                subtitle: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Alasan Cuti : ${DiklatList[index]['jabatan_sebelumnya']!}",
-                                      style: TextStyle(
-                                          color: whiteColor,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 11),
+                                      fontSize: 11,
                                     ),
-                                    Text(
-                                      "Tanggal : ${DiklatList[index]['jabatan_baru']!}",
-                                      style: TextStyle(
-                                          color: whiteColor,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 11),
+                                  ),
+                                  Text(
+                                    "Penyelenggara : ${DiklatList[index]['penyelenggara']!}",
+                                    style: TextStyle(
+                                      color: whiteColor,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 11,
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
-                            );
-                          }),
+                            ),
+                          );
+                        },
+                      ),
                     ),
-                  
                   ],
                 ),
               ],
             ),
           ],
-       
-       
         ),
       ),
-       floatingActionButton: FloatingActionButton.small(
+      floatingActionButton: FloatingActionButton.small(
         backgroundColor: primaryColor,
         onPressed: () {
           Navigator.of(context).pop();

@@ -121,7 +121,7 @@ class _DetailJabatanViewState extends State<DetailJabatanView> {
                                 style: TextStyle(
                                     fontSize: 15, fontWeight: FontWeight.bold)),
                             Text(
-                              '${widget.jabatan['ruangan_bari']!}',
+                              '${widget.jabatan['ruangan_baru']!}',
                               style: TextStyle(fontSize: 15),
                             ),
                             SizedBox(

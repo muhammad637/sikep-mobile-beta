@@ -67,7 +67,7 @@ class _ProfileViewState extends State<ProfileView> {
                 SizedBox(height: 62),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: HeaderContainer(HeaderName: "DETAIL JABATAN"),
+                  child: HeaderContainer(HeaderName: "PROFILE"),
                 ),
                 SizedBox(height: 20),
                 Column(
@@ -98,11 +98,11 @@ class _ProfileViewState extends State<ProfileView> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                             Center(
+                            const Center(
                               child: CircleAvatar(
                                 radius: 60,
                                 backgroundImage:
-                                    AssetImage("assets/asset_sikep/akun.png"),
+                                    AssetImage("assets/asset_sikep/akun.png"),backgroundColor: Colors.transparent,
                               ),
                             ),
                             SizedBox(height: 50),

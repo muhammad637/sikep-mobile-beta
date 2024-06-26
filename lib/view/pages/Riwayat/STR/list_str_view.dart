@@ -37,12 +37,12 @@ class _ListSTRViewState extends State<ListSTRView> {
         10,
         (index) => {
           'no_str': 'STR ${index+1}',
-          'no_sip': 'params${index + 2}',
-          'kompetensi': 'params${index + 3}',
-          'no_kompetensi': 'params${index + 3}',
+          'no_sip': 'LOREM/NSIP/${index + 2}/2024',
+          'kompetensi': 'Kompetensi ${index + 3}',
+          'no_kompetensi': 'LOREM/NK/${index + 2}/2024',
           'penerbit_str': 'params${index + 1}',
-          'tanggal_terbit_str': 'params',
-          'masa_berakhir_str': 'params',
+          'tanggal_terbit_str': '2024-01-01',
+          'masa_berakhir_str': '2024-01-01',
         },
       );
     });
@@ -119,15 +119,15 @@ class _ListSTRViewState extends State<ListSTRView> {
                                   color: primaryColor),
                               child: ListTile(
                                 contentPadding: EdgeInsets.all(10),
-                                leading: CircleAvatar(),
+                                leading: CircleAvatar(child: Image.asset(
+                                      "assets/asset_sikep/account_circle.png"),
+                                  backgroundColor: Colors.transparent,),
                                 trailing: InkWell(
                                   onTap: () {
                                     navigateToDetail(str[index]);
                                   },
-                                  child: Icon(
-                                    Icons.info,
-                                    color: whiteColor,
-                                  ),
+                                  child: Image
+                                        .asset("assets/asset_sikep/info.png")
                                 ),
                                 title: Text(
                                   "No STR : ${str[index]['no_str']!}",

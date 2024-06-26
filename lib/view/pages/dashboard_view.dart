@@ -52,10 +52,7 @@ class _DashboardViewState extends State<DashboardView> {
               const SizedBox(
                 height: 20,
               ),
-              _MenuActivityComponent(),
-              const SizedBox(
-                height: 20,
-              ),
+             
               SizedBox(
                 height: 95,
               ),

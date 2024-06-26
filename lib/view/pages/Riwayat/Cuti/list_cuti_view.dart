@@ -113,15 +113,12 @@ class _ListCutiViewState extends State<ListCutiView> {
                                   color: primaryColor),
                               child: ListTile(
                                 contentPadding: EdgeInsets.all(10),
-                                leading: CircleAvatar(),
+                                leading: CircleAvatar(child: Image.asset("assets/asset_sikep/account_circle.png"),backgroundColor: Colors.transparent,),
                                 trailing: InkWell(
                                   onTap: () {
                                     navigateToDetail(CutiList[index]);
                                   },
-                                  child: Icon(
-                                    Icons.info,
-                                    color: whiteColor,
-                                  ),
+                                  child: Image.asset("assets/asset_sikep/info.png"),
                                 ),
                                 title: Text(
                                   "Jenis Cuti : ${CutiList[index]['jenis']!}",

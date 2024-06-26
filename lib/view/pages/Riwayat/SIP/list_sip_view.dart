@@ -25,7 +25,7 @@ class _ListSIPViewState extends State<ListSIPView> {
   void initState() {
     super.initState();
     headerComponent = HeaderComponent();
-    headerContainer = HeaderContainer(HeaderName: "RIWAYAT str");
+    headerContainer = HeaderContainer(HeaderName: "RIWAYAT SIP");
     // You can call your API here
     fetchDiklatList();
   }
@@ -37,12 +37,12 @@ class _ListSIPViewState extends State<ListSIPView> {
         10,
         (index) => {
           'no_str': 'STR ${index + 1}',
-          'no_sip': 'params${index + 2}',
-          'alamat_izin_praktik': 'params${index + 3}',
-          'no_rekomendasi': 'params${index + 3}',
-          'penerbit_sip': 'params${index + 1}',
-          'tanggal_terbit_sip': 'params',
-          'masa_berakhir_sip': 'params',
+          'no_sip': 'LOREM/NSIP/${index + 2}/2024',
+          'alamat_izin_praktik': 'Jl. LoremIpsum ${index + 3}',
+          'no_rekomendasi': 'LOREM/NR/${index + 3}/2024',
+          'penerbit_sip': 'Lorem Ipsum',
+          'tanggal_terbit_sip': '2024-01-01',
+          'masa_berakhir_sip': '2029-01-01',
         },
       );
     });
@@ -119,15 +119,16 @@ class _ListSIPViewState extends State<ListSIPView> {
                                   color: primaryColor),
                               child: ListTile(
                                 contentPadding: EdgeInsets.all(10),
-                                leading: CircleAvatar(),
+                                leading: CircleAvatar(child: Image.asset(
+                                      "assets/asset_sikep/account_circle.png"),
+                                  backgroundColor: Colors.transparent,
+                                ),
                                 trailing: InkWell(
                                   onTap: () {
                                     navigateToDetail(str[index]);
                                   },
-                                  child: Icon(
-                                    Icons.info,
-                                    color: whiteColor,
-                                  ),
+                                  child: Image.asset(
+                                        "assets/asset_sikep/info.png")
                                 ),
                                 title: Text(
                                   "No SIP : ${str[index]['no_sip']!}",
@@ -140,7 +141,7 @@ class _ListSIPViewState extends State<ListSIPView> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      "Penerbit SIP : ${str[index]['jenis_sip']}",
+                                      "Penerbit SIP : ${str[index]['penerbit_sip']}",
                                       style: TextStyle(
                                           color: whiteColor,
                                           fontWeight: FontWeight.bold,

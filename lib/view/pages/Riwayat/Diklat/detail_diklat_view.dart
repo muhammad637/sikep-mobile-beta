@@ -76,84 +76,68 @@ class _DetailDiklatViewState extends State<DetailDiklatView> {
                           children: [
                             SizedBox(height: 10),
                             Text(
-                              'TIPE',
+                              'Nama Diklat',
                               style: TextStyle(
                                   fontSize: 15, fontWeight: FontWeight.bold),
                             ),
-                            Text('${widget.diklat['tipe']}',
+                            Text('${widget.diklat['nama_diklat']}',
                                 style: TextStyle(fontSize: 15)),
                             SizedBox(
                               height: 10,
                             ),
                             Text(
-                              'JABATAN SEBELUMNYA',
+                              'Penyelenggara',
                               style: TextStyle(
                                   fontSize: 15, fontWeight: FontWeight.bold),
                             ),
-                            Text('${widget.diklat['jabatan_sebelumnya']}',
+                            Text('${widget.diklat['penyelenggara']}',
                                 style: TextStyle(fontSize: 15)),
                             SizedBox(
                               height: 10,
                             ),
                             Text(
-                              'JABATAN BARU',
+                              'Tempat',
                               style: TextStyle(
                                   fontSize: 15, fontWeight: FontWeight.bold),
                             ),
                             Text(
-                              '${widget.diklat['jabatan_baru']}',
+                              '${widget.diklat['tempat']}',
                               style: TextStyle(fontSize: 15),
                             ),
                             SizedBox(
                               height: 10,
                             ),
-                            Text('RUANGAN SEBELUMNYA',
+                            Text('Tanggal Diklat',
                                 style: TextStyle(
                                     fontSize: 15, fontWeight: FontWeight.bold)),
                             Text(
-                              '${widget.diklat['ruangan_sebelumnya']!}',
+                              '${widget.diklat['tanggal_mulai']!} - ${widget.diklat['tanggal_selesai']!}',
                               style: TextStyle(fontSize: 15),
                             ),
                               SizedBox(
                               height: 10,
                             ),
-                            Text('RUANGAN BARU',
+                            Text('Jumlah Hari',
                                 style: TextStyle(
                                     fontSize: 15, fontWeight: FontWeight.bold)),
                             Text(
-                              '${widget.diklat['ruangan_baru']!}',
+                              '${widget.diklat['jumlah_hari']!} hari',
                               style: TextStyle(fontSize: 15),
                             ),
                              SizedBox(
                               height: 10,
                             ),
-                            Text('TANGGAL BERLAKU',
+                            Text('Jumlah Jam',
                                 style: TextStyle(
                                     fontSize: 15, fontWeight: FontWeight.bold)),
                             Text(
-                              '${widget.diklat['tanggal_berlaku']!}',
+                              '${widget.diklat['jumlah_jam']!} jam',
                               style: TextStyle(fontSize: 15),
                             ),
                              SizedBox(
                               height: 10,
                             ),
-                            Text('NO SK',
-                                style: TextStyle(
-                                    fontSize: 15, fontWeight: FontWeight.bold)),
-                            Text(
-                              '${widget.diklat['no_sk']!}',
-                              style: TextStyle(fontSize: 15),
-                            ),
-                             SizedBox(
-                              height: 10,
-                            ),
-                            Text('TANGGAL SK',
-                                style: TextStyle(
-                                    fontSize: 15, fontWeight: FontWeight.bold)),
-                            Text(
-                              '${widget.diklat['tanggal_sk']!}',
-                              style: TextStyle(fontSize: 15),
-                            ),
+                           
                       
                           ],
                         ),

@@ -44,7 +44,7 @@ class _DetailSTRViewState extends State<DetailSTRView> {
                 SizedBox(height: 62),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: HeaderContainer(HeaderName: "DETAIL MUTASI"),
+                  child: HeaderContainer(HeaderName: "DETAIL STR"),
                 ),
                 SizedBox(height: 20),
                 Column(

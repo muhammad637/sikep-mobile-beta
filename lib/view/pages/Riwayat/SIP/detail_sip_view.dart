@@ -44,7 +44,7 @@ class _DetailSIPViewState extends State<DetailSIPView> {
                 SizedBox(height: 62),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: HeaderContainer(HeaderName: "DETAIL MUTASI"),
+                  child: HeaderContainer(HeaderName: "DETAIL SIP"),
                 ),
                 SizedBox(height: 20),
                 Column(

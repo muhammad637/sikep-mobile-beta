@@ -44,7 +44,7 @@ class _DetailKenaikanPangkatViewState extends State<DetailKenaikanPangkatView> {
                 SizedBox(height: 62),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: HeaderContainer(HeaderName: "Detail diklat"),
+                  child: HeaderContainer(HeaderName: "Kenaikan Pangkat"),
                 ),
                 SizedBox(height: 20),
                 Column(
@@ -100,7 +100,7 @@ class _DetailKenaikanPangkatViewState extends State<DetailKenaikanPangkatView> {
                               style: TextStyle(
                                   fontSize: 15, fontWeight: FontWeight.bold),
                             ),
-                            Text('${widget.kenaikanPangkat['tmt_terbit']} - ${widget.kenaikanPangkat['tmt_barakhir']}',
+                            Text('${widget.kenaikanPangkat['tmt_terbit']} - ${widget.kenaikanPangkat['tmt_berakhir']}',
                                 style: TextStyle(fontSize: 15)),
                             SizedBox(
                               height: 10,

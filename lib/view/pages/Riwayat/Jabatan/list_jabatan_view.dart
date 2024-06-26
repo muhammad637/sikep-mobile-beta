@@ -36,14 +36,14 @@ class _ListJabatanViewState extends State<ListJabatanView> {
       jabatan = List.generate(
         10,
         (index) => {
-          'tipe': 'STR ${index + 1}',
-          'jabatan_sebelumnya': 'params${index + 2}',
-          'jabatan_baru': 'params${index + 3}',
-          'ruangan_sebelumnya': 'params${index + 3}',
-          'ruangan_baru': 'params${index + 1}',
-          'tanggal_berlaku': 'params',
-          'no_sk': 'params',
-          'tanggal_sk': 'params',
+          'tipe': 'Promosi',
+          'jabatan_sebelumnya': 'Promosi ${index + 1}',
+          'jabatan_baru': 'Promosi${index + 2}',
+          'ruangan_sebelumnya': 'Ruangan ${index + 1}',
+          'ruangan_baru': 'Ruangan ${index + 2}',
+          'tanggal_berlaku': '2024-01-01',
+          'no_sk': 'LOREM/NS/${index+1}/2024',
+          'tanggal_sk': '2024-01-01',
         },
       );
     });
@@ -120,15 +120,13 @@ class _ListJabatanViewState extends State<ListJabatanView> {
                                   color: primaryColor),
                               child: ListTile(
                                 contentPadding: EdgeInsets.all(10),
-                                leading: CircleAvatar(),
+                                leading: CircleAvatar(child: Image.asset("assets/asset_sikep/account_circle.png"),backgroundColor: Colors.transparent,),
                                 trailing: InkWell(
                                   onTap: () {
                                     navigateToDetail(jabatan[index]);
                                   },
-                                  child: Icon(
-                                    Icons.info,
-                                    color: whiteColor,
-                                  ),
+                                  child: Image.asset(
+                                        "assets/asset_sikep/info.png")
                                 ),
                                 title: Text(
                                   "Tipe : ${jabatan[index]['tipe']!}",

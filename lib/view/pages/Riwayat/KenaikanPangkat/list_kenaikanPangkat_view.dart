@@ -25,7 +25,7 @@ class _ListKenaikanPangkatViewState extends State<ListKenaikanPangkatView> {
   void initState() {
     super.initState();
     headerComponent = HeaderComponent();
-    headerContainer = HeaderContainer(HeaderName: "Riwayat Cuti");
+    headerContainer = HeaderContainer(HeaderName: "Kenaikan Pangkat");
     // You can call your API here
     fetchDiklatList();
   }
@@ -36,12 +36,12 @@ class _ListKenaikanPangkatViewState extends State<ListKenaikanPangkatView> {
       KenaikanPangkatList = List.generate(
         10,
         (index) => {
-          'pangkat/gol_sebelumnya': '${index % 2 == 0 ? "Promosi" : "Demosi"}',
-          'pangkat/gol_baru': 'params${index + 2}',
-          'tmt_terbit': 'params${index + 3}',
-          'tmt_berakhir': 'params${index + 3}',
-          'no_sk': 'params${index + 1}',
-          'penerbit_sk': 'params',
+          'pangkat/gol_sebelumnya': 'Pangkat ${index + 1}',
+          'pangkat/gol_baru': 'pangkat ${index + 2}',
+          'tmt_terbit': '${DateTime.now().year - index - 1}-${index + 1}-01',
+          'tmt_berakhir': '202${index+4}-10-10',
+          'no_sk': 'banyuwangi/1/${index + 1}',
+          'penerbit_sk': 'PemKab banyuwangi',
         },
       );
     });
@@ -119,18 +119,20 @@ class _ListKenaikanPangkatViewState extends State<ListKenaikanPangkatView> {
                                   color: primaryColor),
                               child: ListTile(
                                 contentPadding: EdgeInsets.all(10),
-                                leading: CircleAvatar(),
+                                leading: CircleAvatar(child: 
+                                  Image.asset(
+                                      "assets/asset_sikep/account_circle.png"),
+                                  backgroundColor: Colors.transparent,
+                                ),
                                 trailing: InkWell(
                                   onTap: () {
                                     navigateToDetail(KenaikanPangkatList[index]);
                                   },
-                                  child: Icon(
-                                    Icons.info,
-                                    color: whiteColor,
-                                  ),
+                                  child: Image.asset(
+                                        "assets/asset_sikep/info.png")
                                 ),
                                 title: Text(
-                                  "Jenis Cuti : ${KenaikanPangkatList[index]['pangkat/gol_baru']!}",
+                                  "Pangkat/Gol Baru : ${KenaikanPangkatList[index]['pangkat/gol_baru']!}",
                                   style: TextStyle(
                                       color: whiteColor,
                                       fontWeight: FontWeight.bold,
